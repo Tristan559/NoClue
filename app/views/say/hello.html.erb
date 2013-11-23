@@ -1,0 +1,16 @@
+<p id="notice"><%= notice %></p>
+<h1>Say#hello</h1>
+<p>Find me in app/views/say/hello.html.erb</p>
+<p>
+  The current time is <%= @time %>!
+</p>
+<p>
+  Time to say <%= link_to "Goodbye", say_goodbye_path %>
+</p>
+<p>
+  Type in name of user to search for
+</p>
+<%= form_tag find_users_path do %>
+    <%= text_field_tag "name", "" %>
+    <%= submit_tag "Find" %>
+<% end %>
