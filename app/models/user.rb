@@ -3,7 +3,15 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+  def create
+    User.create(user_params)
+  end
 
   # attr_accessible :email, :password, :password_confirmation, :remember_me, :name
   has_one :contact
+
+  private
+  def user_params
+    params.require(:user).permit(:name, :email, :password, :password_confirmation, :remember_me)
+  end
 end

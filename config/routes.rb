@@ -7,9 +7,12 @@ NoClue::Application.routes.draw do
   get "say/hello"
   get "say/goodbye"
 
+  # will use below when I want to hide /users/:id from url display
+  #post "users/find", :to => "users#find"
+
   resources :users do
     collection do
-      post "find"
+      post 'find'
     end
   end
 
