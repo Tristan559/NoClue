@@ -4,7 +4,7 @@ class CreateContacts < ActiveRecord::Migration
 
       t.string :mobile , :null => false, :default => ''
       t.string :address_1 , :null => false, :default => ''
-      t.string :address_2 , :null => false, :default => ''
+      t.string :address_2 , :default => ''
       t.string :state, :null => false, :default => ''
       t.string :zip_code, :null => false, :default => ''
 

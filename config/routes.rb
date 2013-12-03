@@ -1,6 +1,7 @@
 NoClue::Application.routes.draw do
 
-  devise_for :users
+  devise_for :users, :controllers => { :registrations =>'registration'}
+  get 'dashboard' => 'home#dashboard'
   root :to => "home#index"
 
   get "say/hello"
