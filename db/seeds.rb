@@ -5,4 +5,7 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-User.create(name: 'Randy', password: 'seventh7', email: 'rcasey559@gmail.com', num_logins: 0)
+
+# add '!' at end of User.create to throw exception if any params are not valid
+User.create!(name: 'Randy', email: 'rcasey559@gmail.com', password: 'passwordd', password_confirmation: 'passwordd')
+

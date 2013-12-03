@@ -1,4 +1,8 @@
 NoClue::Application.routes.draw do
+
+  devise_for :users
+  root :to => "say#hello"
+
   get "say/hello"
   get "say/goodbye"
 
