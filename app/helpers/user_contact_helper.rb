@@ -55,4 +55,15 @@ module UserContactHelper
         ['Wyoming', 'WY']
     ]
   end
+
+  # gets state name from [:state_name, :state_code] array = uses us_states[] array defined above
+  def UserContactHelper.state_name(state_code)
+    state_pair = us_states.select{|v| v[1] == state_code}
+
+    if state_pair.any?
+      return state_pair.first[0]
+    end
+
+    return 'unknown'
+  end
 end
