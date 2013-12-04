@@ -41,7 +41,7 @@
 
   <tr>
     <td>State : </td>
-    <td><%=text_field_tag "contact[state]" ,@contact.state %></td>
+    <td><%= select_tag "contact[state]", options_for_select(UserContactHelper.us_states) %></td>
   </tr>
 
   <tr>
