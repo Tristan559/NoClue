@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131203083921) do
+ActiveRecord::Schema.define(version: 20131213040331) do
 
   create_table "contacts", force: true do |t|
     t.string   "mobile",     default: "", null: false
@@ -22,6 +22,14 @@ ActiveRecord::Schema.define(version: 20131203083921) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
+  end
+
+  create_table "profiles", force: true do |t|
+    t.date     "birthday",            default: '1900-01-01', null: false
+    t.string   "relationship_status", default: "S",          null: false
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", force: true do |t|

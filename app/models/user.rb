@@ -7,11 +7,12 @@ class User < ActiveRecord::Base
     User.create(user_params)
   end
 
-  # attr_accessible :email, :password, :password_confirmation, :remember_me, :name
   has_one :contact
+  has_one :profile
 
   private
   def user_params
+    # attr_accessible :email, :password, :password_confirmation, :remember_me, :name
     params.require(:user).permit(:name, :email, :password, :password_confirmation, :remember_me)
   end
 end
