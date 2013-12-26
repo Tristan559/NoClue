@@ -1,5 +1,7 @@
 NoClue::Application.routes.draw do
 
+  resources :friendships
+
   devise_for :users, :controllers => { :registrations =>'registration'}
   get 'dashboard' => 'home#dashboard'
   root :to => "home#index"
