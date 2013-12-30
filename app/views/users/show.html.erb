@@ -5,15 +5,25 @@
   Email: <%= @user.email %><br>
   Num Logins: <%= @user.sign_in_count%>
 </p>
-<p>
-  <!-- show contact info if user has any -->
-  <% if @user.contact %>
-      Address:<br/>
-      <%= @user.contact.address_1 %><br/>
-      <%= @user.contact.address_2 %><br/>
-      <%= UserContactHelper.state_name @user.contact.state %><br/>
-      <%= @user.contact.zip_code %><br/>
+<!-- show contact info if user has any -->
+<% if @user.contact %>
+    <%= render @user.contact %>
+<% end %>
+
+<% if @user.profile %>
+    <%= render @user.profile %>
+<% end %>
+
+<h2>Friends</h2>
+<ul>
+  <% for friendship in @user.friendships %>
+      <li>
+        <%= friendship.friend.name %>
+        (<%= link_to "remove", friendship, :method => :delete %>)
+      </li>
   <% end %>
-</p>
+</ul>
+
+<%= link_to 'Show Users', users_path %>
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', :back %>
