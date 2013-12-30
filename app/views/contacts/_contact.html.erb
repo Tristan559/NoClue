@@ -1,0 +1,15 @@
+<!-- show contact info if user has any -->
+<p>
+  Contact info:<br/>
+  Address:<br/>
+  <% if contact.address_1.length > 0 %>
+    <%= contact.address_1 %><br/>
+  <% end %>
+
+  <% if contact.address_2.length > 0 %>
+    <%= contact.address_2 %><br/>
+  <% end %>
+
+  <%= UserContactHelper.state_name contact.state %><br/>
+  <%= contact.zip_code %><br/>
+</p>
