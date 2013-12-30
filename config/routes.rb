@@ -1,6 +1,7 @@
 NoClue::Application.routes.draw do
 
   resources :contacts
+  resources :profiles
   resources :friendships
 
   devise_for :users, :controllers => { :registrations =>'registration'}
