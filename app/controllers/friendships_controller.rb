@@ -6,14 +6,10 @@ class FriendshipsController < ApplicationController
   def create
     @friendship = current_user.friendships.build(:friend_id => params[:friend_id])
 
-    respond_to do |format|
-      if @friendship.save
-        format.html { redirect_to @friendship, notice: 'Friendship was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @friendship }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @friendship.errors, status: :unprocessable_entity }
-      end
+    if @friendship.save
+      redirect_to current_user
+    else
+      redirect_to current_user
     end
   end
 
@@ -22,10 +18,7 @@ class FriendshipsController < ApplicationController
   def destroy
     @friendship = current_user.friendships.find(params[:id])
     @friendship.destroy
-    respond_to do |format|
-      format.html { redirect_to friendships_url }
-      format.json { head :no_content }
-    end
+    redirect_to current_user
   end
 
   private
